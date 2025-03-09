@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 //Declarando uma constante
 #define MAX_CADASTRO 30
@@ -27,6 +28,25 @@ void listAlunos() {
     for(int i = 0;i < totalAlunos;i++){
         printf("\n");
         printf(" Usuario: %d\n nome: %s\n idade:%d\n", i, alunos[i].nome, alunos[i].idade);
+    }
+}
+
+void buscaNome(){
+    int encontrado = 0;
+    char nomeProcurado[50];
+    printf("Digite o nome do aluno para busca: ");
+    scanf("%s", &nomeProcurado);
+
+    for(int i = 0; i < totalAlunos; i++){
+        if(strcmp(alunos[i].nome,nomeProcurado)== 0){
+            printf("\nAluno encontrado!\n");
+            printf("Nome: %s\nIdade: %d\n", alunos[i].nome, alunos[i].idade);
+            encontrado = 1;
+        }
+    }
+
+    if(!encontrado){
+            printf("\nAluno não encontrado!\n");
     }
 }
 
@@ -60,10 +80,11 @@ int main() {
                 listAlunos();
                 break;
             case 3:
+                buscaNome();
                 break;
             case 4:
                 printf("Operação finalizada!");
-                printf("\n")
+                printf("\n");
                 break;
             default:
                 break;
