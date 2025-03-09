@@ -9,11 +9,11 @@ struct Aluno {
     char nome[50];
     int idade;
 };
-//Declaração de array com numero constante de alunos que podem ser cadastrados.
+//DeclaraÃ§Ã£o de array com numero constante de alunos que podem ser cadastrados.
 struct Aluno alunos[MAX_CADASTRO];
 int totalAlunos = 0;
 
-//Função que cadastra os alunos no array,pedindo nome e idade.
+//FunÃ§Ã£o que cadastra os alunos no array,pedindo nome e idade.
 void cadastro() {
     printf("Digite o nome desse aluno: ");
     scanf("%s", &alunos[totalAlunos].nome);
@@ -23,14 +23,14 @@ void cadastro() {
     totalAlunos++;
 }
 
-//Função que faz a listagem de alunos.
+//FunÃ§Ã£o que faz a listagem de alunos.
 void listAlunos() {
     for(int i = 0;i < totalAlunos;i++){
         printf("\n");
         printf(" Usuario: %d\n nome: %s\n idade:%d\n", i, alunos[i].nome, alunos[i].idade);
     }
 }
-
+//FunÃ§ao busca pelo nome
 void buscaNome(){
     int encontrado = 0;
     char nomeProcurado[50];
@@ -38,21 +38,22 @@ void buscaNome(){
     scanf("%s", &nomeProcurado);
 
     for(int i = 0; i < totalAlunos; i++){
+        //strcmp faz uma comparaÃ§Ã£o com os nomes dos usuario e faz um retorno ,se for 0 os nomes sÃ£o iguais,sendo !0 os nomes sÃ£o diferentes.
         if(strcmp(alunos[i].nome,nomeProcurado)== 0){
             printf("\nAluno encontrado!\n");
             printf("Nome: %s\nIdade: %d\n", alunos[i].nome, alunos[i].idade);
             encontrado = 1;
         }
     }
-
+    //true e false.
     if(!encontrado){
-            printf("\nAluno não encontrado!\n");
+            printf("\nAluno nÃ£o encontrado!\n");
     }
 }
 
 int main() {
     int escolha;
-    //Loop que após realizar algumas das funções ,pede ao usuario pra escolhar uma oopção novamente,até ele adicionar 4.
+    //Loop que apÃ³s realizar algumas das funÃ§Ãµes ,pede ao usuario pra escolhar uma oopÃ§Ã£o novamente,atÃ© ele adicionar 4.
     do {
         printf("--------------------------------------------------------\n");
         printf(" 1 - para cadastrar um novo aluno\n");
@@ -83,7 +84,7 @@ int main() {
                 buscaNome();
                 break;
             case 4:
-                printf("Operação finalizada!");
+                printf("OperaÃ§Ã£o finalizada!");
                 printf("\n");
                 break;
             default:
